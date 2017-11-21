@@ -17,7 +17,7 @@ df_dict = support.create_materials_df()
 # Step 2: reframing and normalizing
 # reframing is basically creating from the original sequence a bunch of lag-day-long sequences
 # normalization is squashing all the data between 0 and 1, this is required to properly train the model
-reframed_dict = support.reframe_normalize_dict(df_dict, lag_day)
+reframed_dict, _ = support.reframe_normalize_dict(df_dict, lag_day)
 # deleting the old dictionary to save RAM and help pandas keep everything in-memory
 del df_dict
 
