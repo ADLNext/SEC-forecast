@@ -1,0 +1,6 @@
+data/*.csv
+data/analysis/
+models/*.h5
+*.csv
+*.pem
+__pycache__
