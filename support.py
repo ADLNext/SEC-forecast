@@ -6,13 +6,13 @@ from sklearn.preprocessing import MinMaxScaler
 def create_materials_df():
     df = pd.read_csv('data/complete.csv')
     df = df[~df['Material'].str.contains('DELETED')]
-    df['Elapsed weeks'] = df['Elapsed weeks'].astype(int)
+    df = df[~df['Quantity'] < 0]
 
     grp = df[[
         'Material',
         'Date',
         'Quantity'
-    ]].groupby(['Material', 'Date']).sum()
+    ]].groupby(['Date', 'Material']).sum()
     grp.reset_index(inplace=True)
     grp.sort_values(by='Date')
     mats = grp['Material'].unique().tolist()
