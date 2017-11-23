@@ -6,3 +6,4 @@ models/*.h5
 *.pem
 __pycache__
 *.ipynb
+excel_ready.py
